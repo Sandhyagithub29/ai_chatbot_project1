@@ -1,0 +1,44 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": ["Hi", "Hello", "Hey", "Good morning", "Good evening"],
+      "responses": ["Hello!", "Hi there!", "Hey!", "Greetings!", "How can I help you today?"]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "See you", "Goodbye", "Catch you later"],
+      "responses": ["Goodbye!", "See you soon!", "Take care!", "Bye! Have a great day!"]
+    },
+    {
+      "tag": "thanks",
+      "patterns": ["Thanks", "Thank you", "Thanks a lot", "Much appreciated"],
+      "responses": ["You're welcome!", "No problem!", "Glad I could help!", "Anytime!"]
+    },
+    {
+      "tag": "name_query",
+      "patterns": ["What is your name?", "Who are you?", "What's your name?"],
+      "responses": ["I'm your AI assistant!", "You can call me ChatBot!", "I am an AI created to help you."]
+    },
+    {
+      "tag": "help",
+      "patterns": ["Can you help me?", "I need support", "Help me", "I need help"],
+      "responses": ["Of course! What can I help you with?", "Sure, tell me what you need help with."]
+    },
+    {
+      "tag": "age",
+      "patterns": ["How old are you?", "What's your age?"],
+      "responses": ["I'm timeless!", "I don't age like humans do."]
+    },
+    {
+      "tag": "weather",
+      "patterns": ["How's the weather?", "Tell me the weather", "Weather today"],
+      "responses": ["I can't check the weather right now, but it's always sunny here in the cloud!"]
+    },
+    {
+      "tag": "creator",
+      "patterns": ["Who created you?", "Who is your developer?", "Who made you?"],
+      "responses": ["I was built by a team of developers using Python and machine learning!", "An AI enthusiast made me!"]
+    }
+  ]
+}

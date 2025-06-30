@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Chatbot</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>AI Chatbot</h1>
+    <div class="chat-container">
+        <div id="chatbox">
+            <p><strong>Bot:</strong> Hello! How can I help you today?</p>
+        </div>
+        <input type="text" id="user-input" placeholder="Type your message...">
+        <button id="send-button">Send</button>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#send-button").click(function () {
+                var userMessage = $("#user-input").val().trim();
+                if (userMessage === "") return;
+
+                $("#chatbox").append(`<p><strong>You:</strong> ${userMessage}</p>`);
+                $("#user-input").val("");
+
+                $.post("/chat", { message: userMessage }, function (data) {
+                    $("#chatbox").append(`<p><strong>Bot:</strong> ${data.response}</p>`);
+                    $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);
+                });
+            });
+
+            $("#user-input").keypress(function (e) {
+                if (e.which === 13) {
+                    $("#send-button").click();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

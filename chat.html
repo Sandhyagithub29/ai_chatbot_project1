@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Chat Interface</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .chat-header {
+            text-align: center;
+            font-size: 24px;
+            color: #2c3e50;
+            margin: 20px 0;
+        }
+        .chat-box {
+            height: 400px;
+            overflow-y: scroll;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        .message {
+            margin-bottom: 10px;
+        }
+        .user {
+            text-align: right;
+            color: #2980b9;
+        }
+        .bot {
+            text-align: left;
+            color: #27ae60;
+        }
+        .chat-form {
+            display: flex;
+        }
+        .chat-form input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .chat-form input[type="submit"] {
+            margin-left: 10px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-header">Talk to AI Assistant</div>
+
+    <div class="chat-box" id="chat-box">
+        {% if messages %}
+            {% for msg in messages %}
+                <div class="message {{ msg.sender }}">
+                    <strong>{{ msg.sender.capitalize() }}:</strong> {{ msg.text }}
+                </div>
+            {% endfor %}
+        {% else %}
+            <div class="message bot">
+                <strong>Bot:</strong> Hi! I'm your assistant. Ask me anything!
+            </div>
+        {% endif %}
+    </div>
+
+    <form method="post" class="chat-form">
+        <input type="text" name="message" placeholder="Type your message..." required>
+        <input type="submit" value="Send">
+    </form>
+</div>
+
+<script>
+    // Scroll to the bottom automatically
+    var chatBox = document.getElementById("chat-box");
+    chatBox.scrollTop = chatBox.scrollHeight;
+</script>
+
+</body>
+</html>
